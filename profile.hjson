@@ -1,0 +1,123 @@
+# profile.hjson: everything on your link page comes from this file.
+#
+# Edit the values, then run:  npx linkprofile build
+# (or let the GitHub Action build and publish it for you).
+#
+# This file is Hjson, a forgiving kind of JSON. Three rules to remember:
+#
+#   1. An unquoted value runs to the END OF THE LINE. Never put a
+#      comment after a value; it would become part of the value.
+#      Put comments on their own line, like this one.
+#   2. A one-line { ... } needs "quoted" values. Otherwise put each
+#      field on its own line, as below.
+#   3. Colours must be quoted: color: "#34d399". An unquoted # starts
+#      a comment.
+{
+  # Which look to use: classic (the default), bento, cover,
+  # crimson or editorial. Run `npx linkprofile themes` to see them all.
+  theme: classic
+  # Some themes take options. The long form looks like this (quoted
+  # because it sits on one line):
+  # theme: { name: "classic", options: { mode: "dark", accent: "#ff6b6b" } }
+  # classic's options:
+  #   mode: auto (the default) follows each visitor's light or dark
+  #     system setting; light or dark always uses that one.
+  #   toggle: true (the default) shows a light/dark switch in the
+  #     corner when mode is auto; false hides it.
+  #   accent: colours the dot after your name.
+  # The other themes take mode (auto, light or dark) and accent too.
+  # Their default mode: cover auto, bento, crimson and editorial
+  # dark.
+
+  # The public address of your page, used for link previews (the card
+  # shown when someone shares your page). Leave it commented out: the
+  # GitHub Action fills it in with your real Pages address. A value
+  # here would override that, so only set it for a custom domain.
+  # url: https://example.com/links
+
+  # Your name or handle. Required. Shown as the page heading.
+  name: Your Name
+
+  # Your picture. Either a path to a file in this repo (relative to this
+  # file) or a full https:// address. PNG or JPG works best, because
+  # link previews often ignore SVG.
+  avatar: images/avatar.png
+
+  # A line or two about you. Optional.
+  bio: Designer and maker. I sketch, write code and share the small things I build.
+
+  # The row of small icon buttons. Optional.
+  # Each one needs a "type" (the site's name, e.g. github, x, linkedin,
+  # instagram, youtube, mastodon) and a "url". An optional "label"
+  # replaces the default accessible name for screen readers.
+  socials: [
+    {
+      type: x
+      url: https://example.com/your-x-profile
+    }
+    {
+      type: figma
+      url: https://example.com/your-figma-profile
+    }
+    {
+      type: dribbble
+      url: https://example.com/your-dribbble-profile
+    }
+    # A one-liner works too, as long as the values are in quotes:
+    { type: "github", url: "https://example.com/your-github-profile" }
+    {
+      type: linkedin
+      url: https://example.com/your-linkedin-profile
+    }
+  ]
+
+  # A heading shown above your links. Optional.
+  links_title: Featured Links
+
+  # Your links, shown in order. Each one needs a "title" and a "url".
+  # URLs may start with https://, http://, mailto: or tel:.
+  # Add at most one of "icon" or "image". An icon is any name from
+  # https://lucide.dev/icons; common ones such as globe, mail, pencil,
+  # shopping-cart, clock, calendar and music get the theme's own
+  # drawings. An image is a picture, with the same rules as "avatar".
+  links: [
+    {
+      title: My Website
+      url: https://example.com
+      icon: globe
+    }
+    {
+      title: Blog
+      url: https://example.com/blog
+      icon: pencil
+    }
+    {
+      title: Newsletter
+      url: https://example.com/newsletter
+      icon: mail
+      # Icons get two-tone colours in turn. To pick your own, add a
+      # "color" as a quoted hex colour, like this:
+      # color: "#34d399"
+    }
+    {
+      title: Shop
+      url: https://example.com/shop
+      icon: shopping-cart
+    }
+    {
+      title: What I'm Doing Now
+      url: https://example.com/now
+      icon: clock
+    }
+  ]
+
+  # Page details for browser tabs and link previews. All optional:
+  # title defaults to your name and description to your bio. Without
+  # a favicon, browsers show their own icon.
+  meta: {
+    title: Your Name - links
+    description: Everything I make, in one place.
+    # A small square picture for the browser tab.
+    favicon: images/avatar.png
+  }
+}
